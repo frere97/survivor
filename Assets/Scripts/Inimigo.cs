@@ -6,6 +6,7 @@ public class Inimigo : MonoBehaviour
 {
     Rigidbody2D rb;
     public float Velocidade = 400;
+    public int vida = 1;
     void Start()
     {
         transform.position =  new Vector3(transform.position.x,transform.position.y, 0);
@@ -17,5 +18,12 @@ public class Inimigo : MonoBehaviour
     {
 
         rb.velocity = (Player.Instance.transform.position - transform.position) / 2;
+    }
+
+    public void LevaDano(int DanoRecebido)
+    {
+        vida -= DanoRecebido;
+
+        if (vida <= 0) { Destroy(this.gameObject); }
     }
 }

@@ -1124,7 +1124,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 567717470}
   - component: {fileID: 567717472}
   - component: {fileID: 567717471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: parede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,7 +2201,7 @@ GameObject:
   - component: {fileID: 1302053888}
   - component: {fileID: 1302053890}
   - component: {fileID: 1302053889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: parede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2415,7 +2415,7 @@ GameObject:
   - component: {fileID: 1459697194}
   - component: {fileID: 1459697196}
   - component: {fileID: 1459697195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: parede
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2970,7 +2970,7 @@ GameObject:
   - component: {fileID: 1957455803}
   - component: {fileID: 1957455805}
   - component: {fileID: 1957455804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: parede
   m_TagString: Untagged
   m_Icon: {fileID: 0}

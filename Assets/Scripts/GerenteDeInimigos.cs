@@ -29,12 +29,14 @@ public class GerenteDeInimigos : MonoBehaviour
         
     }
 
-    public void InstanciaInimigo()
+    public IEnumerator InstanciaInimigo()
     {
         for(int i = 0; i < InimigosParaInstanciar; i++)
         {
             Vector3 PosicaoParaInstanciar = Spawners[Random.Range(0, Spawners.Count - 1)].position;
             Instantiate(InimigoPrefab, PosicaoParaInstanciar, Quaternion.identity);
+            InimigosJaInstanciadosNoRound++;
+            yield return new WaitForSeconds(Random.Range(0f, 2f));
         }
     }
 }
