@@ -6,9 +6,18 @@ public class Player : MonoBehaviour
     public float velocity = 0.5f;
     public bool podeMover = true;
     public Rigidbody2D rb;
-    // Start is called before the first frame update
+    public static Player Instance;
+    public int vida = 3;
+    public int VidaMax = 3;
+
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+
         rb = GetComponent<Rigidbody2D>();
     }
 
