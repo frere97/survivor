@@ -516,6 +516,7 @@ MonoBehaviour:
   - {fileID: 2064448987}
   InimigosParaInstanciar: 0
   InimigosJaInstanciadosNoRound: 0
+  InimigosRestantes: 0
 --- !u!4 &167503988
 Transform:
   m_ObjectHideFlags: 0
@@ -673,6 +674,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaPlayer: {fileID: 1343457111}
+  TextoRoundAtual: {fileID: 794371582}
+  TextoInimigosRestantes: {fileID: 1018654140}
 --- !u!1 &336054705
 GameObject:
   m_ObjectHideFlags: 0
