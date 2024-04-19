@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Inimigo : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float Velocidade = 400;
     public int vida = 1;
     public int dano = 1;
 
     public GameObject itemRecuperaVidaPrefab;
-    void Start()
+     void Start()
     {
         transform.position =  new Vector3(transform.position.x,transform.position.y, 0);
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
+        Anda();
+    }
 
+    protected virtual void Anda()
+    {
         rb.velocity = (Player.Instance.transform.position - transform.position) / 2;
     }
 

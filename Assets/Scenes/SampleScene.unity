@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5389249
 RectTransform:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3608e807bbec5d40803dc010ff121f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InimigoPrefab: {fileID: 8236856107669335719, guid: ae3a3e4b2d63ad2419af585f4062879c, type: 3}
+  InimigoPrefab: {fileID: 8236856107669335719, guid: 3f1af1fafdd60a048bd676f17cd59312, type: 3}
   Spawners:
   - {fileID: 897601560}
   - {fileID: 14816512}
