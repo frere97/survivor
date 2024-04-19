@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     {
         RoundAtual++;
         GerenteDeInimigos.Instance.InimigosParaInstanciar = 2 * RoundAtual + (3 + Player.Instance.vida + Random.Range(0, 3));
-        StartCoroutine(GerenteDeInimigos.Instance.InstanciaInimigo());
+        GerenteDeInimigos.Instance.AtualizaInimigosRoundAtual();
+        UI.Instance.SetRoundAtual();
+        UI.Instance.SetInimigosRestantes();
     }
 }

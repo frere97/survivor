@@ -10,6 +10,7 @@ public class GerenteDeInimigos : MonoBehaviour
     public List<Transform> Spawners;
     public int InimigosParaInstanciar;
     public int InimigosJaInstanciadosNoRound;
+    public int InimigosRestantes;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,15 +19,25 @@ public class GerenteDeInimigos : MonoBehaviour
         }
         Instance = this;
     }
-
-    void Start()
+    
+    public void MataInimigo()
     {
+        InimigosRestantes--;
+        UI.Instance.SetInimigosRestantes();
+        ChecaInimigosRestantes();
+    }
+    public void ChecaInimigosRestantes()
+    {
+        if(InimigosRestantes <= 0)
+        {
+            GameManager.Instance.AtualizaRound();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AtualizaInimigosRoundAtual()
     {
-        
+        InimigosRestantes = InimigosParaInstanciar;
+        StartCoroutine(InstanciaInimigo());
     }
 
     public IEnumerator InstanciaInimigo()

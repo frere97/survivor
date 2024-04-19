@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     public int vida = 3;
     public int VidaMax = 3;
 
+    public LayerMask LM_normal, LM_levouDano;
+    public Color CorNormal, CorLevouDano;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -19,6 +23,11 @@ public class Player : MonoBehaviour
         Instance = this;
 
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        CorNormal = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -45,5 +54,22 @@ public class Player : MonoBehaviour
         diff.Normalize();
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+    }
+
+    public IEnumerator LevaDano(int dano)
+    {
+        vida -= dano;
+        GetComponent<Collider2D>().excludeLayers = LM_levouDano;
+        GetComponent<SpriteRenderer>().color = CorLevouDano;
+        AtualizaVida();
+
+        yield return new WaitForSeconds(1f);
+        GetComponent<Collider2D>().excludeLayers = LM_normal;
+        GetComponent<SpriteRenderer>().color = CorNormal;
+    }
+
+    void AtualizaVida()
+    {
+        UI.Instance.AtualizaVidaPlayer(vida, VidaMax);
     }
 }

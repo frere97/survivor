@@ -7,6 +7,7 @@ public class Inimigo : MonoBehaviour
     Rigidbody2D rb;
     public float Velocidade = 400;
     public int vida = 1;
+    public int dano = 1;
     void Start()
     {
         transform.position =  new Vector3(transform.position.x,transform.position.y, 0);
@@ -22,8 +23,20 @@ public class Inimigo : MonoBehaviour
 
     public void LevaDano(int DanoRecebido)
     {
+
         vida -= DanoRecebido;
 
-        if (vida <= 0) { Destroy(this.gameObject); }
+        if (vida <= 0) {
+            GerenteDeInimigos.Instance.MataInimigo();
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Player>())
+        {
+            StartCoroutine(collision.gameObject.GetComponent<Player>().LevaDano(dano));
+        }
     }
 }
