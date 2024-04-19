@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
         Instance = this;
 
         rb = GetComponent<Rigidbody2D>();
+
+        Time.timeScale = 1f;
     }
 
     private void Start()
@@ -62,14 +64,24 @@ public class Player : MonoBehaviour
         GetComponent<Collider2D>().excludeLayers = LM_levouDano;
         GetComponent<SpriteRenderer>().color = CorLevouDano;
         AtualizaVida();
+        ChecaSeMorre();
 
         yield return new WaitForSeconds(1f);
         GetComponent<Collider2D>().excludeLayers = LM_normal;
         GetComponent<SpriteRenderer>().color = CorNormal;
     }
 
-    void AtualizaVida()
+    public void AtualizaVida()
     {
         UI.Instance.AtualizaVidaPlayer(vida, VidaMax);
+    }
+
+    void ChecaSeMorre()
+    {
+        if (vida <= 0)
+        {
+            Time.timeScale = 0.1f;
+            UI.Instance.LigaTelaDeMorte();
+        }
     }
 }
