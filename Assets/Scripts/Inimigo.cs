@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inimigo : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float Velocidade = 400;
+    public float Velocidade = 800;
     public int vida = 1;
     public int dano = 1;
 
@@ -16,7 +16,6 @@ public class Inimigo : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     protected virtual void Update()
     {
         Anda();
@@ -24,7 +23,7 @@ public class Inimigo : MonoBehaviour
 
     protected virtual void Anda()
     {
-        rb.velocity = (Player.Instance.transform.position - transform.position) / 2;
+        rb.velocity = (Player.Instance.transform.position - transform.position);
     }
 
     public void LevaDano(int DanoRecebido)
