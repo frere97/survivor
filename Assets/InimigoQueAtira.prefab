@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6517808742514744675}
   - component: {fileID: 3478426215137741967}
-  - component: {fileID: 1934307849924655920}
   - component: {fileID: 4514616109237497912}
   - component: {fileID: 6992815746166263706}
+  - component: {fileID: 7181019055096324934}
+  - component: {fileID: 5765293799747598213}
   m_Layer: 7
-  m_Name: inimigo
+  m_Name: InimigoQueAtira
   m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5422347, g: 0.056114297, b: 0.9150943, a: 1}
+  m_Sprite: {fileID: -2135585597343286014, guid: 5aa8b770bc43046bc8d993d0d5b7f4a5, type: 3}
+  m_Color: {r: 0.8867924, g: 0.14405832, b: 0.12967247, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,23 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1934307849924655920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8236856107669335719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f3847c973c6734c919822ec35e6cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  Velocidade: 400
-  vida: 1
-  dano: 1
-  itemRecuperaVidaPrefab: {fileID: 2587229887832741193, guid: ff3b0a447aa790a4b88288d5b992f474, type: 3}
 --- !u!58 &4514616109237497912
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +117,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -166,3 +150,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7181019055096324934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236856107669335719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67239af278c97394a9d5526e220fe967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 6992815746166263706}
+  Velocidade: 800
+  vida: 1
+  dano: 1
+  itemRecuperaVidaPrefab: {fileID: 2587229887832741193, guid: ff3b0a447aa790a4b88288d5b992f474, type: 3}
+--- !u!114 &5765293799747598213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236856107669335719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4e811d76ee55f40aa1a156c12976cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BalaInimigo: {fileID: 3690526677098448887, guid: 609d5de6abd0d4746a441b9ceaa889f7, type: 3}
+  InimigoQueAtira: {fileID: 6517808742514744675}
+  Forca: 100
+  intervaloDeTiro: 3
+  Dano: 1
