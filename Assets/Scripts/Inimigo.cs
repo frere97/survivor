@@ -46,6 +46,16 @@ public class Inimigo : MonoBehaviour
         Destroy(this.gameObject);
 
         Player.Instance.ContadorEskudo++;
+
+        if (Random.Range(0, 10) <= 10)
+        {
+            if (!ArmaPlayerColetavel.Instance.gameObject.activeSelf && !Player.Instance.possuiArma)
+            {
+                ArmaPlayerColetavel.Instance.gameObject.SetActive(true);
+                ArmaPlayerColetavel.Instance.transform.position = transform.position;
+
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

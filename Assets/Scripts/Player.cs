@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public LayerMask LM_normal, LM_levouDano;
     public Color CorNormal, CorLevouDano;
     public int ContadorEskudo = 0;
+    public bool possuiArma;
 
     [SerializeField]
     public eskudo eskudo;
