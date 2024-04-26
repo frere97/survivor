@@ -45,7 +45,7 @@ public class Inimigo : MonoBehaviour
         GerenteDeInimigos.Instance.MataInimigo();
         Destroy(this.gameObject);
 
-
+        Player.Instance.ContadorEskudo++;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,5 +54,6 @@ public class Inimigo : MonoBehaviour
         {
             StartCoroutine(collision.gameObject.GetComponent<Player>().LevaDano(dano));
         }
+
     }
 }

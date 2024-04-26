@@ -8,7 +8,6 @@ public class Bala : MonoBehaviour
 {
     Rigidbody2D rb;
     public float velocity = 500;
-    // Start is called before the first frame update
     public int danoDaArma = 1;
     void Start()
     {

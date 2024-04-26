@@ -4,15 +4,33 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+
+
+
+
+    /// ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     public float velocity = 0.5f;
     public bool podeMover = true;
     public Rigidbody2D rb;
     public static Player Instance;
     public int vida = 3;
     public int VidaMax = 3;
-
+    public bool escudoAtivo = false;
     public LayerMask LM_normal, LM_levouDano;
     public Color CorNormal, CorLevouDano;
+    public int ContadorEskudo = 0;
+
+    [SerializeField]
+    public eskudo eskudo;
+
+
+    /// ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
     void Awake()
     {
@@ -32,17 +50,41 @@ public class Player : MonoBehaviour
         CorNormal = GetComponent<SpriteRenderer>().color;
     }
 
-    // Update is called once per frame
+
+
+
+
+
+
+
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
     void Update()
     {
-        if (podeMover) { 
-        movimento(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (podeMover)
+        {
+            movimento(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
 
         Rotate();
 
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        if (Input.GetKeyDown(KeyCode.F) && ContadorEskudo >= 10)
+        {
+            this.eskudo.Ativa();
+            ContadorEskudo -= 10;
+        }
     }
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
     void movimento(float x, float y)
     {
@@ -82,6 +124,15 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0.1f;
             UI.Instance.LigaTelaDeMorte();
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "eskudo")
+        {
+            Physics2D.IgnoreCollision(eskudo.GetComponent<CircleCollider2D>(), GetComponent<Collider2D>());
         }
     }
 }
