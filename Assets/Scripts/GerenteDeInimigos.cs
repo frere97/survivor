@@ -5,10 +5,7 @@ using UnityEngine;
 public class GerenteDeInimigos : MonoBehaviour
 {
     
-    public GameObject InimigoPrefab;
-    public GameObject InimigoPrefab2;
-    public GameObject InimigoPrefab3;
-    public GameObject InimigoPrefab4;
+    public GameObject[] InimigoPrefab;
     public static GerenteDeInimigos Instance;
     public List<Transform> Spawners;
     public int InimigosParaInstanciar;
@@ -45,34 +42,15 @@ public class GerenteDeInimigos : MonoBehaviour
 
     public IEnumerator InstanciaInimigo()
     {
-        for(int i = 0; i < InimigosParaInstanciar; i++)
+        for (int i = 0; i < InimigosParaInstanciar; i++)
         {
             Vector3 PosicaoParaInstanciar = Spawners[Random.Range(0, Spawners.Count - 1)].position;
-            Instantiate(InimigoPrefab, PosicaoParaInstanciar, Quaternion.identity);
+
+            
+            Instantiate(InimigoPrefab[Random.Range(0, InimigoPrefab.Length - 1)], PosicaoParaInstanciar, Quaternion.identity);
             InimigosJaInstanciadosNoRound++;
             yield return new WaitForSeconds(Random.Range(0f, 2f));
         }
-        for (int i = 0; i < InimigosParaInstanciar; i++)
-        {
-            Vector3 PosicaoParaInstanciar = Spawners[Random.Range(0, Spawners.Count - 1)].position;
-            Instantiate(InimigoPrefab2, PosicaoParaInstanciar, Quaternion.identity);
-            InimigosJaInstanciadosNoRound++;
-            yield return new WaitForSeconds(Random.Range(0f, 9f));
-        }
-        for (int i = 0; i < InimigosParaInstanciar; i++)
-        {
-            Vector3 PosicaoParaInstanciar = Spawners[Random.Range(0, Spawners.Count - 1)].position;
-            Instantiate(InimigoPrefab3, PosicaoParaInstanciar, Quaternion.identity);
-            InimigosJaInstanciadosNoRound++;
-            yield return new WaitForSeconds(Random.Range(0f, 3f));
-        }
-        for (int i = 0; i < InimigosParaInstanciar; i++)
-        {
-            Vector3 PosicaoParaInstanciar = Spawners[Random.Range(0, Spawners.Count - 1)].position;
-            Instantiate(InimigoPrefab4, PosicaoParaInstanciar, Quaternion.identity);
-            InimigosJaInstanciadosNoRound++;
-            yield return new WaitForSeconds(Random.Range(0f, 13f));
-        }
+
     }
-    
 }
